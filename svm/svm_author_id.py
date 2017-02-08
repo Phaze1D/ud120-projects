@@ -12,7 +12,10 @@ import sys
 import pandas as pd
 from time import time
 sys.path.append("../tools/")
+sys.path.append("../choose_your_own/")
 from email_preprocess import preprocess
+from class_vis import prettyPicture
+from prep_terrain_data import makeTerrainData
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 
@@ -40,5 +43,10 @@ print "predict time:", round(time()-t1, 3), "s"
 
 print accuracy_score(pred, labels_test)
 
-df = pd.DataFrame({'pred':pred})
-print len(df[df.pred == 1])
+# df = pd.DataFrame({'pred':pred})
+# print len(df[df.pred == 1])
+
+# try:
+#     prettyPicture(clf, features_test, labels_test)
+# except NameError:
+#     pass
